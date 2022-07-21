@@ -2,6 +2,7 @@
 ## This project is part of selection process for a position in Health Equity account at Taller Technologies
 
 **Contents**
+
 Folder: SQL Test
 - init_databse.sql -> Script SQL for create tables and init test data
 - OrdersQuery -> Query requested in the instructions file "COBRA refresh coding exercises.pptx"
