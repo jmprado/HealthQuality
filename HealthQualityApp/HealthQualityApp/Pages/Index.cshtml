@@ -1,0 +1,71 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (Model.carList != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Year
+                </th>
+                <th>
+                    Doors
+                </th>
+                <th>
+                    Color
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model.carList)
+            {
+                <tr>
+                    <td>
+                        @car.Id
+                    </td>
+                    <td>
+                        @car.Make
+                    </td>
+                    <td>
+                        @car.Model
+                    </td>
+                    <td>
+                        @car.Year
+                    </td>
+                    <td>
+                        @car.Doors
+                    </td>
+                    <td>
+                        @car.Color
+                    </td>
+                    <td>
+                        <label for="input_@car.Id">
+                            Try to guess the car price:
+                        </label>
+                        <input type="number" id="input_@car.Id" maxlength="9" />
+                    </td>
+                    <td>
+                        <button class="btn btn-primary">Guess</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
