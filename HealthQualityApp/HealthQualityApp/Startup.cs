@@ -52,11 +52,14 @@ namespace HealthQualityApp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapPost("/api/guessvalue/{carId:int}/{guessValue:int}", async (int carId, int guessValue, ICarService carService) =>
+                {
+                    return await carService.GuessPriceWithin5000RangeAsync(carId, guessValue);
+                });
             });
 
 
             // Add test date to memory
-            //var carService =  (CarService)app.ApplicationServices.GetService(typeof(CarService));
             await carService.InitTestDataAsync();
         }
     }
